@@ -1,7 +1,65 @@
 <!doctype html>
 <head>
+<style>
+body {
+	color: #00FF00;
+	font-family: "Courier New", Times, monospace;
+	font-size: 30px;
+}
+span.blinker {
+	position: absolute;
+	color: #00FF00;
+	animation-name: blink;
+	animation-duration: 0.3s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	-webkit-animation-name: blink;
+	-webkit-animation-duration: 0.3s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+}
+@-webkit-keyframes blink {
+	0% {color: #000000}
+	50% {color: #00FF00}
+	100% {color: #000000}
+}
+@keyframes blink {
+	0% {color: #000000}
+	50% {color: #00FF00}
+	100% {color: #000000}
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+var str = "Lolcats are epic",
+	i = 0;
+	text = null;
+function typer(){
+	text = str.slice(0, i);
+	i++;
+	console.log(text);
+	document.getElementById("typewriter").innerHTML = text;
+	if(text == str) return;
+	setTimeout(typer,80);
+}
+(function type() {
+    text = str.slice(0, ++i);
+    if (text === str) return;
+    
+    document.getElementById('typewriter').innerHTML = text;
+
+    var char = text.slice(-1);
+    if( char === '<' ) isTag = true;
+    if( char === '>' ) isTag = false;
+
+    if (isTag) return type();
+    setTimeout(type, 80);
+}());
+</script>
 </head>
-<body>
-<p id="popularusernamestartswithL"><a href="https://www.youtube.com/watch?v=8IJzYAda1wA">Someone thinks you're beautiful.</a></p>
+<body bgcolor="#000000" onload="setTimeout(typer,2000);">
+<b>> <span id="typewriter"></span><span class="blinker" id="txt">_</span></b>
 </body>
 </html>
