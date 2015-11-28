@@ -33,22 +33,18 @@ span.blinker {
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
-var str = "Happy Birthday Maddy!<br>Have some cake.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,:/+/-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/M/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.,-=;//;-<br>&nbsp;&nbsp;&nbsp; .:/= ;MH/,&nbsp;&nbsp;,=/+%$XH@MM#@:<br>&nbsp;&nbsp;&nbsp;-$##@+$###@H@MMM#######H:.&nbsp;&nbsp;-/H#<br> .,H@H@ X######@ -H#####@+-&nbsp;&nbsp; -+H###@X<br>&nbsp;.,@##H;&nbsp;&nbsp;&nbsp;+XM##M/,&nbsp;&nbsp; =%@###@X;-<br>X%-&nbsp;:M##########$.&nbsp;&nbsp;.:%M###@%:<br>M##H,&nbsp; +H@@@$/-.&nbsp;,;$M###@%,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-<br>M####M=,,---,.-%%H####M$:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,+@##<br>@##################@/.&nbsp;&nbsp;&nbsp;&nbsp; :%H##@$-<br>M###############H,&nbsp;&nbsp;&nbsp;&nbsp; ;HM##M$=<br>#################.&nbsp;&nbsp;.=$M##M$=<br>################H..;XM##M$=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.:+<br>M###################@%=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =+@MH%<br>@################M/.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=+H#X%=<br>=+M##############M,&nbsp;&nbsp;&nbsp; -/X#X+;.<br>&nbsp;.;XM##########H=&nbsp;&nbsp;,/X#H+:,<br>&nbsp;&nbsp; .=+HM######M+/+HM@+=.<br>&nbsp;&nbsp;&nbsp;&nbsp; ,:/%XM####H/.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,.:=-.";
+var str = "Happy Birthday Maddy!<br>";
+var strr = "Have some cake.<br><br>";
+var strrr = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,:/+/-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/M/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.,-=;//;-<br>&nbsp;&nbsp;&nbsp; .:/= ;MH/,&nbsp;&nbsp;,=/+%$XH@MM#@:<br>&nbsp;&nbsp;&nbsp;-$##@+$###@H@MMM#######H:.&nbsp;&nbsp;-/H#<br> .,H@H@ X######@ -H#####@+-&nbsp;&nbsp; -+H###@X<br>&nbsp;.,@##H;&nbsp;&nbsp;&nbsp;+XM##M/,&nbsp;&nbsp; =%@###@X;-<br>X%-&nbsp;:M##########$.&nbsp;&nbsp;.:%M###@%:<br>M##H,&nbsp; +H@@@$/-.&nbsp;,;$M###@%,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-<br>M####M=,,---,.-%%H####M$:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,+@##<br>@##################@/.&nbsp;&nbsp;&nbsp;&nbsp; :%H##@$-<br>M###############H,&nbsp;&nbsp;&nbsp;&nbsp; ;HM##M$=<br>#################.&nbsp;&nbsp;.=$M##M$=<br>################H..;XM##M$=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.:+<br>M###################@%=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =+@MH%<br>@################M/.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=+H#X%=<br>=+M##############M,&nbsp;&nbsp;&nbsp; -/X#X+;.<br>&nbsp;.;XM##########H=&nbsp;&nbsp;,/X#H+:,<br>&nbsp;&nbsp; .=+HM######M+/+HM@+=.<br>&nbsp;&nbsp;&nbsp;&nbsp; ,:/%XM####H/.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,.:=-.";
 var isTag = false;
 var i = 0;
 var text = null;
-function typer(){
-	text = str.slice(0, i);
-	document.getElementById("typewriter").innerHTML = text;
-	var char = str.slice(i,i+1);
-	if(char == ">"){ isTag = false }
-	if(char == "<"){ isTag = true }
-	if(isTag){ return typer(); }
-	if(text == str) return;
-	i++;
-	setTimeout(typer,80);
+function reset(){
+	isTag = false;
+	i = 0;
+	text = null;
 }
-function type() {
+function typeone() {
     text = str.slice(0, i);
 
     var char = str.slice(i,i+1);
@@ -62,6 +58,43 @@ function type() {
     	return;
     }
     setTimeout(type, 80);
+}
+function typetwo() {
+    text = strr.slice(0, i);
+
+    var char = strr.slice(i,i+1);
+    if( char === '<' || char === '&') isTag = true;
+    if( char === '>' || char === ';') isTag = false;
+    i++;
+    if (isTag) type();
+    document.getElementById('typewriter').innerHTML = text;
+    if(text === strr){
+    	console.log("returned");
+    	return;
+    }
+    setTimeout(type, 80);
+}
+function typethree() {
+    text = strrr.slice(0, i);
+
+    var char = strrr.slice(i,i+1);
+    if( char === '<' || char === '&') isTag = true;
+    if( char === '>' || char === ';') isTag = false;
+    i++;
+    if (isTag) type();
+    document.getElementById('typewriter').innerHTML = text;
+    if(text === strrr){
+    	console.log("returned");
+    	return;
+    }
+    setTimeout(type, 80);
+}
+function run(){
+	setTimeout(typeone,2000);
+	reset();
+	setTimeout(typetwo,1250);
+	reset();
+	setTimeout(typethree,2500);
 }
 </script>
 </head>
