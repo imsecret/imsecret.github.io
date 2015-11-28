@@ -54,14 +54,13 @@ function type() {
     var char = text.slice(i,i+1);
     if( char === '<' ) isTag = true;
     if( char === '>' ) isTag = false;
-
+    i++;
     if (isTag) type();
     document.getElementById('typewriter').innerHTML = text;
     if(text === str){
     	console.log("returned");
     	return;
     }
-    i++;
     setTimeout(type, 80);
 }
 </script>
