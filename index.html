@@ -33,20 +33,19 @@ span.blinker {
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
-var str = "Happy Birthday Maddy! :)",
-	i = 0;
-	text = null;
-function typer(){
+var str = "Happy Birthday Maddy! :) <br>new stuff";
+var isTag = false;
+var i = 0;
+var text = null;
+/*function typer(){
 	text = str.slice(0, i);
 	i++;
-	console.log(text);
 	document.getElementById("typewriter").innerHTML = text;
 	if(text == str) return;
 	setTimeout(typer,80);
-}
-(function type() {
-    text = str.slice(0, ++i);
-    if (text === str) return;
+}*/
+(function type(s) {
+    text = s.slice(0, ++i);
     
     document.getElementById('typewriter').innerHTML = text;
 
@@ -55,11 +54,12 @@ function typer(){
     if( char === '>' ) isTag = false;
 
     if (isTag) return type();
+    if (text === s) return;
     setTimeout(type, 80);
 }());
 </script>
 </head>
-<body bgcolor="#000000" onload="setTimeout(typer,2000);">
+<body bgcolor="#000000" onload="setTimeout(type,2000);">
 <b>> <span id="typewriter"></span><span class="blinker" id="txt">_</span></b>
 </body>
 </html>
