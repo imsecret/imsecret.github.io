@@ -1,100 +1,43 @@
 <!doctype html>
 <head>
+<title>Le Happy Birthday</title>
 <style>
-body {
-	color: #00FF00;
-	font-family: "Courier New", Times, monospace;
-	font-size: 25px;
+body{
+  background: #000;
+  padding-top: 10px;
+  color: lime;
+  font-family: "Courier";
+  font-size: 20px;
 }
-span.blinker {
-	position: absolute;
-	color: #00FF00;
-	animation-name: blink;
-	animation-duration: 0.3s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	-webkit-animation-name: blink;
-	-webkit-animation-duration: 0.3s;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-direction: alternate;
+span.blinker{
+  animation: blink 1s infinite;
 }
-@-webkit-keyframes blink {
-	0% {color: #000000}
-	50% {color: #00FF00}
-	100% {color: #000000}
-}
-@keyframes blink {
-	0% {color: #000000}
-	50% {color: #00FF00}
-	100% {color: #000000}
+@keyframes blink{
+  to{opacity: .0;}
 }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript">
-var str = "Happy Birthday Maddy!<br>";
-var strr = "Have some cake.<br><br>";
-var strrr = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,:/+/-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/M/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.,-=;//;-<br>&nbsp;&nbsp;&nbsp; .:/= ;MH/,&nbsp;&nbsp;,=/+%$XH@MM#@:<br>&nbsp;&nbsp;&nbsp;-$##@+$###@H@MMM#######H:.&nbsp;&nbsp;-/H#<br> .,H@H@ X######@ -H#####@+-&nbsp;&nbsp; -+H###@X<br>&nbsp;.,@##H;&nbsp;&nbsp;&nbsp;+XM##M/,&nbsp;&nbsp; =%@###@X;-<br>X%-&nbsp;:M##########$.&nbsp;&nbsp;.:%M###@%:<br>M##H,&nbsp; +H@@@$/-.&nbsp;,;$M###@%,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-<br>M####M=,,---,.-%%H####M$:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,+@##<br>@##################@/.&nbsp;&nbsp;&nbsp;&nbsp; :%H##@$-<br>M###############H,&nbsp;&nbsp;&nbsp;&nbsp; ;HM##M$=<br>#################.&nbsp;&nbsp;.=$M##M$=<br>################H..;XM##M$=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.:+<br>M###################@%=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =+@MH%<br>@################M/.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=+H#X%=<br>=+M##############M,&nbsp;&nbsp;&nbsp; -/X#X+;.<br>&nbsp;.;XM##########H=&nbsp;&nbsp;,/X#H+:,<br>&nbsp;&nbsp; .=+HM######M+/+HM@+=.<br>&nbsp;&nbsp;&nbsp;&nbsp; ,:/%XM####H/.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,.:=-.";
-var isTag = false;
-var i = 0;
-var text = null;
-function reset(){
-	isTag = false;
-	i = 0;
-	text = null;
-}
-function typethree() {
-    text = strrr.slice(0, i);
+<script>
+var str = "Happy Birthday Maddy!<br>Have some cake...<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,:/+/-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/M/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.,-=;//;-<br>&nbsp;&nbsp;&nbsp; .:/= ;MH/,&nbsp;&nbsp;,=/+%$XH@MM#@:<br>&nbsp;&nbsp;&nbsp;-$##@+$###@H@MMM#######H:.&nbsp;&nbsp;-/H#<br> .,H@H@ X######@ -H#####@+-&nbsp;&nbsp; -+H###@X<br>&nbsp;.,@##H;&nbsp;&nbsp;&nbsp;+XM##M/,&nbsp;&nbsp; =%@###@X;-<br>X%-&nbsp;:M##########$.&nbsp;&nbsp;.:%M###@%:<br>M##H,&nbsp; +H@@@$/-.&nbsp;,;$M###@%,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-<br>M####M=,,---,.-%%H####M$:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,+@##<br>@##################@/.&nbsp;&nbsp;&nbsp;&nbsp; :%H##@$-<br>M###############H,&nbsp;&nbsp;&nbsp;&nbsp; ;HM##M$=<br>#################.&nbsp;&nbsp;.=$M##M$=<br>################H..;XM##M$=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.:+<br>M###################@%=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =+@MH%<br>@################M/.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=+H#X%=<br>=+M##############M,&nbsp;&nbsp;&nbsp; -/X#X+;.<br>&nbsp;.;XM##########H=&nbsp;&nbsp;,/X#H+:,<br>&nbsp;&nbsp; .=+HM######M+/+HM@+=.<br>&nbsp;&nbsp;&nbsp;&nbsp; ,:/%XM####H/.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,.:=-.<span class='blinker'>_</span>",
+    i = 0,
+    isTag,
+    text;
 
-    var char = strrr.slice(i,i+1);
+function type() {
+    text = str.slice(0, ++i);
+    if (text === str) return;
+    
+    document.getElementById("typewriter").innerHTML = text;
+
+    var char = text.slice(-1);
     if( char === '<' || char === '&') isTag = true;
     if( char === '>' || char === ';') isTag = false;
-    i++;
-    if (isTag) typethree();
-    document.getElementById('typewriter').innerHTML = str+strr+text;
-    if(text === strrr){
-    	console.log("returned");
-    	return;
-    }else{
-    	setTimeout(typethree, 80);
-    }
-}
-function typetwo() {
-    text = strr.slice(0, i);
 
-    var char = strr.slice(i,i+1);
-    if( char === '<' || char === '&') isTag = true;
-    if( char === '>' || char === ';') isTag = false;
-    i++;
-    if (isTag) typetwo();
-    document.getElementById('typewriter').innerHTML = str+text;
-    if(text === strr){
-    	reset();
-	setTimeout(typethree,2500);
-    }else{
-    	setTimeout(typetwo, 80);
-    }
-}
-function typeone() {
-    text = str.slice(0, i);
-
-    var char = str.slice(i,i+1);
-    if( char === '<' || char === '&') isTag = true;
-    if( char === '>' || char === ';') isTag = false;
-    i++;
-    if (isTag) typeone();
-    document.getElementById('typewriter').innerHTML = text;
-    if(text === str){
-    	reset();
-    	setTimeout(typetwo,1250);
-    }else{
-    	setTimeout(typeone, 80);
-    }
-}
+    if (isTag) return type();
+    setTimeout(type, 50);
+};
 </script>
 </head>
-<body bgcolor="#000000" onload="setTimeout(typeone,2000);">
-<b>> <span id="typewriter"></span><span class="blinker" id="txt">_</span></b>
+<body onload="setTimeout(type,1000);">
+<span id="typewriter"></span>
 </body>
 </html>
