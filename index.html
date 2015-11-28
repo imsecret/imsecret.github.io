@@ -33,7 +33,7 @@ span.blinker {
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
-var str = "";
+var str = "&nbsp;&nbsp;hi der";
 var isTag = false;
 var i = 0;
 var text = null;
@@ -52,8 +52,8 @@ function type() {
     text = str.slice(0, i);
 
     var char = text.slice(i,i+1);
-    if( char === '<' ) isTag = true;
-    if( char === '>' ) isTag = false;
+    if( char === '<' || char === '&') isTag = true;
+    if( char === '>' || char === ';') isTag = false;
     i++;
     if (isTag) type();
     document.getElementById('typewriter').innerHTML = text;
