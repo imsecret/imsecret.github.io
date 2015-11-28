@@ -55,7 +55,7 @@ function type() {
     if( char === '<' ) isTag = true;
     if( char === '>' ) isTag = false;
 
-    if (isTag) return type();
+    if (isTag) type();
     document.getElementById('typewriter').innerHTML = text;
     if(text === str){
     	console.log("returned");
