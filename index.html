@@ -56,8 +56,9 @@ function typethree() {
     if(text === strrr){
     	console.log("returned");
     	return;
+    }else{
+    	setTimeout(typethree, 80);
     }
-    setTimeout(typethree, 80);
 }
 function typetwo() {
     text = strr.slice(0, i);
@@ -71,8 +72,9 @@ function typetwo() {
     if(text === strr){
     	reset();
 	setTimeout(typethree,2500);
+    }else{
+    	setTimeout(typetwo, 80);
     }
-    setTimeout(typetwo, 80);
 }
 function typeone() {
     text = str.slice(0, i);
@@ -86,8 +88,9 @@ function typeone() {
     if(text === str){
     	reset();
     	setTimeout(typetwo,1250);
+    }else{
+    	setTimeout(typeone, 80);
     }
-    setTimeout(typeone, 80);
 }
 </script>
 </head>
