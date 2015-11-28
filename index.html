@@ -67,7 +67,7 @@ function typetwo() {
     if( char === '>' || char === ';') isTag = false;
     i++;
     if (isTag) typetwo();
-    document.getElementById('typewriter').innerHTML = text;
+    document.getElementById('typewriter').innerHTML = str+text;
     if(text === strr){
     	console.log("returned");
     	return;
@@ -82,7 +82,7 @@ function typethree() {
     if( char === '>' || char === ';') isTag = false;
     i++;
     if (isTag) typethree();
-    document.getElementById('typewriter').innerHTML = text;
+    document.getElementById('typewriter').innerHTML = str+strr+text;
     if(text === strrr){
     	console.log("returned");
     	return;
