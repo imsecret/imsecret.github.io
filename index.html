@@ -57,7 +57,10 @@ function type() {
 
     if (isTag) return type();
     document.getElementById('typewriter').innerHTML = text;
-    if(text === str) return;
+    if(text === str){
+    	console.log("returned");
+    	return;
+    }
     i++;
     setTimeout(type, 80);
 }
