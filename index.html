@@ -51,13 +51,13 @@ function typeone() {
     if( char === '<' || char === '&') isTag = true;
     if( char === '>' || char === ';') isTag = false;
     i++;
-    if (isTag) type();
+    if (isTag) typeone();
     document.getElementById('typewriter').innerHTML = text;
     if(text === str){
     	console.log("returned");
     	return;
     }
-    setTimeout(type, 80);
+    setTimeout(typeone, 80);
 }
 function typetwo() {
     text = strr.slice(0, i);
@@ -66,13 +66,13 @@ function typetwo() {
     if( char === '<' || char === '&') isTag = true;
     if( char === '>' || char === ';') isTag = false;
     i++;
-    if (isTag) type();
+    if (isTag) typetwo();
     document.getElementById('typewriter').innerHTML = text;
     if(text === strr){
     	console.log("returned");
     	return;
     }
-    setTimeout(type, 80);
+    setTimeout(typetwo, 80);
 }
 function typethree() {
     text = strrr.slice(0, i);
@@ -81,13 +81,13 @@ function typethree() {
     if( char === '<' || char === '&') isTag = true;
     if( char === '>' || char === ';') isTag = false;
     i++;
-    if (isTag) type();
+    if (isTag) typethree();
     document.getElementById('typewriter').innerHTML = text;
     if(text === strrr){
     	console.log("returned");
     	return;
     }
-    setTimeout(type, 80);
+    setTimeout(typethree, 80);
 }
 function run(){
 	setTimeout(typeone,2000);
