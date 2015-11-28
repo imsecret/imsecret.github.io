@@ -51,7 +51,7 @@ function typer(){
 function type() {
     text = str.slice(0, i);
 
-    var char = text.slice(i,i+1);
+    var char = str.slice(i,i+1);
     if( char === '<' || char === '&') isTag = true;
     if( char === '>' || char === ';') isTag = false;
     i++;
