@@ -44,36 +44,6 @@ function reset(){
 	i = 0;
 	text = null;
 }
-function typeone() {
-    text = str.slice(0, i);
-
-    var char = str.slice(i,i+1);
-    if( char === '<' || char === '&') isTag = true;
-    if( char === '>' || char === ';') isTag = false;
-    i++;
-    if (isTag) typeone();
-    document.getElementById('typewriter').innerHTML = text;
-    if(text === str){
-    	console.log("returned");
-    	return;
-    }
-    setTimeout(typeone, 80);
-}
-function typetwo() {
-    text = strr.slice(0, i);
-
-    var char = strr.slice(i,i+1);
-    if( char === '<' || char === '&') isTag = true;
-    if( char === '>' || char === ';') isTag = false;
-    i++;
-    if (isTag) typetwo();
-    document.getElementById('typewriter').innerHTML = str+text;
-    if(text === strr){
-    	console.log("returned");
-    	return;
-    }
-    setTimeout(typetwo, 80);
-}
 function typethree() {
     text = strrr.slice(0, i);
 
@@ -89,16 +59,39 @@ function typethree() {
     }
     setTimeout(typethree, 80);
 }
-function run(){
-	setTimeout(typeone,2000);
-	reset();
-	setTimeout(typetwo,1250);
-	reset();
+function typetwo() {
+    text = strr.slice(0, i);
+
+    var char = strr.slice(i,i+1);
+    if( char === '<' || char === '&') isTag = true;
+    if( char === '>' || char === ';') isTag = false;
+    i++;
+    if (isTag) typetwo();
+    document.getElementById('typewriter').innerHTML = str+text;
+    if(text === strr){
+    	reset();
 	setTimeout(typethree,2500);
+    }
+    setTimeout(typetwo, 80);
+}
+function typeone() {
+    text = str.slice(0, i);
+
+    var char = str.slice(i,i+1);
+    if( char === '<' || char === '&') isTag = true;
+    if( char === '>' || char === ';') isTag = false;
+    i++;
+    if (isTag) typeone();
+    document.getElementById('typewriter').innerHTML = text;
+    if(text === str){
+    	reset();
+    	setTimeout(typetwo,1250);
+    }
+    setTimeout(typeone, 80);
 }
 </script>
 </head>
-<body bgcolor="#000000" onload="run();">
+<body bgcolor="#000000" onload="setTimeout(typeone,2000);">
 <b>> <span id="typewriter"></span><span class="blinker" id="txt">_</span></b>
 </body>
 </html>
