@@ -48,9 +48,8 @@ function typer(){
 	i++;
 	setTimeout(typer,80);
 }
-(function type() {
-    text = str.slice(0, ++i);
-    if (text === str) return;
+function type() {
+    text = str.slice(0, i);
     
     document.getElementById('typewriter').innerHTML = text;
 
@@ -59,8 +58,10 @@ function typer(){
     if( char === '>' ) isTag = false;
 
     if (isTag) return type();
+    if(text === str) return;
+    i++;
     setTimeout(type, 80);
-}());
+}
 </script>
 </head>
 <body bgcolor="#000000" onload="setTimeout(type,2000);">
