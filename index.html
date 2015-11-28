@@ -45,8 +45,8 @@ var text = null;
 	setTimeout(typer,80);
 }*/
 (function type(s) {
-    text = s.slice(0, ++i);
-    
+    text = s.slice(0, i);
+    i++;
     document.getElementById('typewriter').innerHTML = text;
 
     var char = text.slice(-1);
