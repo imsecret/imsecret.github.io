@@ -37,13 +37,17 @@ var str = "Happy Birthday Maddy! :) <br>new stuff";
 var isTag = false;
 var i = 0;
 var text = null;
-/*function typer(){
+function typer(){
 	text = str.slice(0, i);
-	i++;
 	document.getElementById("typewriter").innerHTML = text;
+	var char = str.slice(i,i+1);
+	if(char == ">"){ isTag = false }
+	if(char == "<"){ isTag = true }
+	if(isTag){ return typer(); }
 	if(text == str) return;
+	i++;
 	setTimeout(typer,80);
-}*/
+}
 (function type(s) {
     text = s.slice(0, i);
     i++;
