@@ -1,43 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <head>
-<title>Derp.</title>
-<style>
-body{
-  background: #000;
-  padding-top: 10px;
-  color: lime;
-  font-family: "Courier";
-  font-size: 20px;
-}
-span.blinker{
-  animation: blink 1s infinite;
-}
-@keyframes blink{
-  to{opacity: .0;}
-}
-</style>
-<script>
-var str = "I'm sorry for flip-flopping in my behavior<br>and forcing you to predict my actions.<br>It simply goes to show how socially inept I really am.<br>So, here's what I'm going to do.<br>I'm going to make it a point to unexpectedly give you a hug (almost) every time I see you.<br>(unless my social spidey senses say that it's going to absolutely make everyone uncomfortable)<br>I know that I said I wasn't going to give you hugs for the next couple of weeks on campus.<br>But fuck the hug police. I'M GIVING YOU HUGS ANYWAY. Sound good??",
-    i = 0,
-    isTag,
-    text;
-
-function type() {
-    text = str.slice(0, ++i);
-    if (text === str) return;
-    
-    document.getElementById("typewriter").innerHTML = text;
-
-    var char = text.slice(-1);
-    if( char === '<' || char === '&') isTag = true;
-    if( char === '>' || char === ';') isTag = false;
-
-    if (isTag) return type();
-    setTimeout(type, 50);
-};
-</script>
+    <title>HAPPY BIRTHDAY MADDY!</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body onload="setTimeout(type,1000);">
-<span id="typewriter">_</span>
+<body>
+    <div class="overlay"></div>
+    <div class="overlay-outer" id="overlay-outer"><div class="overlay-middle">
+        <div class="overlay-inner"><div style="font-family: gh;font-size: 3em;">HAPPY BIRTHDAY!</div>
+        <br>Hope your day is very special!
+        <br>Enjoy this collage</div>
+    </div></div>
+    <div class="Collage effect-parent">
+        <img src="images/1.png" width="735" height="889"><img src="images/3.png" width="1920" height="1080"><img src="images/4.png" width="1502" height="845"><img src="images/5.png" width="505" height="897"><img src="images/6.png" width="1920" height="1080"><img src="images/7.png" width="1010" height="733"><img src="images/8.png" width="750" height="736"><img src="images/9.png" width="1920" height="1080"><img src="images/11.png" width="1920" height="1080"><img src="images/12.png" width="500" height="889"><img src="images/13.png" width="1920" height="1080"><img src="images/14.png" width="475" height="844"><img src="images/15.png" width="475" height="844"><img src="images/16.png" width="1920" height="1080"><img src="images/17.png" width="600" height="481"><img src="images/18.png" width="1920" height="1080"><img src="images/19.png" width="1080" height="1920"><img src="images/20.png" width="1080" height="1920"><img src="images/21.png" width="360" height="640"><img src="images/22.png" width="786" height="768"><img src="images/23.png" width="1502" height="845"><img src="images/24.png" width="1502" height="845"><img src="images/25.png" width="1920" height="1080"><img src="images/26.png" width="2448" height="3264"><img src="images/27.png" width="2448" height="3264">
+    </div>
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="scripts/collage.min.js"></script>
+    <script type="text/javascript">
+    $('.Collage').collagePlus({
+        // change this to adjust the height of the rows
+        'targetHeight' : 300,
+        // change this to try different effects
+        // valid effets = effect-1 to effect-6
+        'effect' : 'effect-2',
+        'direction' : 'vertical',
+        'allowPartialLastRow' : true
+    });
+    document.getElementById("overlay-outer").style.opacity = 1;
+    </script>
 </body>
 </html>
