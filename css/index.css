@@ -31,7 +31,7 @@ html, body{
     margin-left: auto;
     margin-right: auto;
     color: #fff;
-    width: 24em;
+    width: 400px;
     margin: 0 auto;
     text-align: center;
     text-shadow: 2px 2px #1a1a1a;
@@ -80,4 +80,26 @@ html, body{
     display: inline-block;
     z-index: 10;
     transition: opacity 0.3s ease-in-out;
+}
+.footer {
+    position: fixed;
+    bottom: 5px;
+    left: 10px;
+    z-index: 20;
+    font-family: bn;
+    font-size: 20px;
+    color: #4a136c;
+}
+@media (max-width: 500px){
+    .inner {
+        width: 300px;
+        font-size: 30px;
+    }
+    .textbox-container {
+        font-size: 20px;
+        width: 300px;
+    }
+    .textbox {
+        width: 250px;
+    }
 }
