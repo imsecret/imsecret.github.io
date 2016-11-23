@@ -53,6 +53,17 @@
             }
             document.getElementById("password").focus();
         }
+        window.touchstart = function(){
+            if(!textboxOpen){
+                textboxOpen = true;
+                // activate animation
+                document.getElementById("textbox").style.animationPlayState = "running";
+                //document.getElementById("textbox").addEventListener("webkitAnimationEnd", function(){showTextBox();}, false);
+                document.getElementById("textbox").addEventListener("animationend", function(){showTextBox();}, false);
+                //document.getElementById("textbox").addEventListener("oanimationend", function(){showTextBox();}, false);
+            }
+            document.getElementById("password").focus();
+        }
     </script>
 </body>
 </html>
