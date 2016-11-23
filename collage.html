@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>HAPPY BIRTHDAY MADDY!</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="overlay-outer" id="overlay-outer"><div class="overlay-middle">
+        <div class="overlay-inner"><div style="font-family: gh;font-size: 3em;">HAPPY BIRTHDAY!</div>
+        <br>Hope your day is very special!
+        <br>Enjoy this collage</div>
+    </div></div>
+    <div class="Collage effect-parent">
+        <img src="images/1.jpg" width="368" height="445"><img src="images/3.jpg" width="960" height="540"><img src="images/4.jpg" width="751" height="423"><img src="images/5.jpg" width="253" height="449"><img src="images/6.jpg" width="960" height="540"><img src="images/7.jpg" width="505" height="367"><img src="images/8.jpg" width="375" height="368"><img src="images/9.jpg" width="960" height="540"><img src="images/11.jpg" width="960" height="540"><img src="images/12.jpg" width="250" height="445"><img src="images/13.jpg" width="960" height="540"><img src="images/14.jpg" width="238" height="422"><img src="images/15.jpg" width="238" height="422"><img src="images/16.jpg" width="960" height="540"><img src="images/17.jpg" width="300" height="241"><img src="images/18.jpg" width="960" height="540"><img src="images/19.jpg" width="540" height="960"><img src="images/20.jpg" width="540" height="960"><img src="images/21.jpg" width="180" height="320"><img src="images/22.jpg" width="393" height="384"><img src="images/23.jpg" width="751" height="423"><img src="images/24.jpg" width="751" height="423"><img src="images/25.jpg" width="960" height="540"><img src="images/26.jpg" width="1224" height="1632"><img src="images/27.jpg" width="1224" height="1632">
+    </div>
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="scripts/collage.min.js"></script>
+    <script type="text/javascript">
+    $('.Collage').collagePlus({
+        // change this to adjust the height of the rows
+        'targetHeight' : 300,
+        // change this to try different effects
+        // valid effets = effect-1 to effect-6
+        'effect' : 'effect-2',
+        'direction' : 'vertical',
+        'allowPartialLastRow' : true
+    });
+    document.getElementById("overlay-outer").style.opacity = 1;
+    </script>
+</body>
+</html>
