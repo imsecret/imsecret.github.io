@@ -43,12 +43,12 @@ html, body{
     font-size: 40px;
     width: 390px;
     height: 0;
-    background-color: #4A148C;
+    background-color: #6A1B9A;
     animation: reveal 0.3s ease-in-out;
 }
 @keyframes reveal{
-    0%{height: 0;}
-    100%{height: 50px;}
+    0%{height: 0;background-color: #6A1B9A;}
+    100%{height: 50px;background-color: #4A148C;}
 }
 .textbox {
     color: #a9a9a7;
