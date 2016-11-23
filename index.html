@@ -1,1 +1,55 @@
-I'll use this again someday...
+<!doctype html>
+<head>
+    <link rel="stylesheet" href="css/index.css">
+    <title>Hello.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body id="body">
+    <div class="outer" id="outer"><div class="middle"><div class="inner">
+        <span style="user-select: none;cursor:default;">Enter password to continue:</span>
+
+        <br><div class="textbox-container" id="textbox"><form onsubmit="return login();"><input type="text" placeholder="Enter password" class="textbox" id="password"><input class="submit" type="submit"></form><img src="css/arrow.svg" class="submit-arrow" id="submit-arrow" onclick="javascript:login();">
+        </div>
+    </div></div></div>
+
+
+    <script type="text/javascript">
+        var textboxOpen = false;
+        function login(evt){
+            if(evt){evt.preventDefault();}
+            if(document.getElementById("password").value.toUpperCase() === "ANNIE123"){
+                window.location.href = "collage.html";
+            }else{
+                //trigger bad animation
+                document.getElementById("body").style.backgroundColor = "#9a1b49";
+                setTimeout(function(){document.getElementById("body").style.backgroundColor = "#6A1B9A";}, 250);
+            }
+            return false;
+        }
+        function showTextBox(){
+            document.getElementById("textbox").style.height = "50px";
+            document.getElementById("password").style.visibility = "visible";
+            document.getElementById("password").focus();
+            document.getElementById("submit-arrow").style.opacity = 0.5;
+        }
+        window.onload = function(){
+            document.getElementById("textbox").style.animationPlayState = "paused";
+            document.getElementById("outer").style.opacity = 1;
+        }
+        window.onbeforeunload = function(){
+            document.getElementById("outer").style.opacity = 0;
+        }
+        window.onclick = function(){
+            if(!textboxOpen){
+                textboxOpen = true;
+                // activate animation
+                document.getElementById("textbox").style.animationPlayState = "running";
+                //document.getElementById("textbox").addEventListener("webkitAnimationEnd", function(){showTextBox();}, false);
+                document.getElementById("textbox").addEventListener("animationend", function(){showTextBox();}, false);
+                //document.getElementById("textbox").addEventListener("oanimationend", function(){showTextBox();}, false);
+            }
+            document.getElementById("password").focus();
+        }
+    </script>
+</body>
+</html>
