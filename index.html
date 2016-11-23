@@ -27,11 +27,14 @@
             return false;
         }
         function showTextBox(){
-            document.getElementById("textbox").style.height = "50px";
-            document.getElementById("password").style.visibility = "visible";
-            document.getElementById("password").focus();
-            document.getElementById("submit-arrow").style.visibility = "visible";
-            document.getElementById("submit-arrow").style.opacity = 0.5;
+            //document.getElementById("textbox").style.visibility = "visible";
+            setTimeout(function(){
+                document.getElementById("textbox").style.height = "50px";
+                document.getElementById("password").style.visibility = "visible";
+                document.getElementById("password").focus();
+                document.getElementById("submit-arrow").style.visibility = "visible";
+                document.getElementById("submit-arrow").style.opacity = 0.5;
+            }, 0);
         }
         window.onload = function(){
             document.getElementById("textbox").style.animationPlayState = "paused";
